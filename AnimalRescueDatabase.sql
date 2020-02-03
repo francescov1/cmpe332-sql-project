@@ -1,39 +1,39 @@
 create table location
 	(
-	 location_id varchar(5),
-	 name varchar(100) not null,
-	 address varchar(120) not null,
-	 telephone char(11) not null,
-	 primary key (location_id)
+		location_id varchar(5),
+		name varchar(100) not null,
+		address varchar(120) not null,
+		telephone char(11) not null,
+		primary key (location_id)
 	);
 
 create table spca
 	(
-	 ID varchar(5),
-	 location_id varchar(5) not null,
-	 foreign key (location_id) references location (location_id),
-	 primary key (ID)
+		ID varchar(5),
+		location_id varchar(5) not null,
+		foreign key (location_id) references location (location_id),
+		primary key (ID)
 	);
 
 create table rescue_org
 	(
-	 ID varchar(5),
-	 location_id varchar(5) not null,
-	 foreign key (location_id) references location (location_id),
-	 primary key (ID)
+		ID varchar(5),
+		location_id varchar(5) not null,
+		foreign key (location_id) references location (location_id),
+		primary key (ID)
 	);
 
 create table shelter
 	(
-	 ID varchar(5),
-	 location_id varchar(5) not null,
-	 website_url varchar(2083) not null,
-	 max_dogs numeric(4, 0) check (max_dogs > 0) not null default 0,
-	 max_cats numeric(4, 0) check (max_cats > 0) not null default 0,
-	 max_rabbits numeric(4, 0) check (max_rabbits > 0) not null default 0,
-	 max_rodents numeric(4, 0) check (max_rodents > 0) not null default 0,
-	 foreign key (location_id) references location (location_id),
-	 primary key (ID)
+		ID varchar(5),
+		location_id varchar(5) not null,
+		website_url varchar(2083) not null,
+		max_dogs numeric(4, 0) check (max_dogs > 0) not null default 0,
+		max_cats numeric(4, 0) check (max_cats > 0) not null default 0,
+		max_rabbits numeric(4, 0) check (max_rabbits > 0) not null default 0,
+		max_rodents numeric(4, 0) check (max_rodents > 0) not null default 0,
+		foreign key (location_id) references location (location_id),
+		primary key (ID)
 	);
 
 create table adopter
