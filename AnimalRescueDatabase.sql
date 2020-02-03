@@ -70,8 +70,8 @@ create table driver
 		ID varchar(5),
 		name varchar(100) not null,
 		telephone		char(11) not null,
-		license_plate varchar(8) not null, // TODO: verify plate length
-		driver_license_number numberic(10, 0) not null, // TODO: verify license length
+		license_plate varchar(8) not null,
+		driver_license_number numeric(20, 0) not null,
 		rescue_org varchar(5),
  	 	foreign key (rescue_org) references rescue_org (ID),
 		primary key (ID)
@@ -81,7 +81,7 @@ create table vet_visit
 	(
 		ID varchar(5),
 		name varchar(100) not null,
-		condition varchar(100) not null, // TODO: fix condition length
+		condition varchar(200) not null,
 		weight numeric(4,2) not null,
 		date Date not null,
 		animal_id varchar(5),
@@ -107,14 +107,24 @@ create table trip
 create table transaction
 	(
 		ID varchar(5),
-		type enum("donation", "animal_purchase") not null, // TODO
-		amount numeric(5, 2) check (amount >= 0) not null, // TODO: are we saving 0$ transactions?
+		amount numeric(5, 2) check (amount >= 0) not null,
 		animal_id varchar(5) not null,
-		payee varchar(5) not null, // TODO: can this only be adopters? can random people make donations? can orgs make purchases?
-		recipient varchar(5),
+		buyer varchar(5) not null,
+		seller varchar(5) not null,
 		date Date not null,
 		foreign key (animal_id) references animal (ID),
-		foreign key (adopter) references adopter (ID),
+		foreign key (buyer) references location (location_id),
+		foreign key (seller) references location (location_id),
+		primary key (ID)
+	)
+
+create table donation
+	(
+		ID varchar(5),
+		amount numeric(5, 2) check (amount >= 0) not null,
+		doner_name varchar(100) not null,
+		recipient varchar(5) not null,
+		date Date not null,
 		foreign key (recipient) references location (location_id),
 		primary key (ID)
 	)
