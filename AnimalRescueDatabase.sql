@@ -28,10 +28,10 @@ create table shelter
 		ID varchar(5),
 		location_id varchar(5) not null,
 		website_url varchar(2083) not null,
-		max_dogs numeric(4, 0) check (max_dogs > 0) not null default 0,
-		max_cats numeric(4, 0) check (max_cats > 0) not null default 0,
-		max_rabbits numeric(4, 0) check (max_rabbits > 0) not null default 0,
-		max_rodents numeric(4, 0) check (max_rodents > 0) not null default 0,
+		max_dogs numeric(4, 0) check (max_dogs >= 0) not null default 0,
+		max_cats numeric(4, 0) check (max_cats >= 0) not null default 0,
+		max_rabbits numeric(4, 0) check (max_rabbits >= 0) not null default 0,
+		max_rodents numeric(4, 0) check (max_rodents >= 0) not null default 0,
 		foreign key (location_id) references location (location_id),
 		primary key (ID)
 	);
