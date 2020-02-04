@@ -4,6 +4,7 @@ create table location
 		name varchar(100) not null,
 		address varchar(120) not null,
 		telephone char(11) not null,
+		type enum("spca", "rescue_org", "shelter", "adopter") not null,
 		primary key (location_id)
 	);
 
