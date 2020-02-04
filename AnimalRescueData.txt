@@ -11,18 +11,18 @@ delete from trip;
 delete from transaction;
 delete from donation;
 
-insert into location values ('00000', 'Animal Haus', '88 St. Clair Ave, Toronto, ON', '416-555-2543');
-insert into location values ('00001', 'Shelter Zone', '31 Beverley St, Kingston, ON', '613-924-1421');
-insert into location values ('00002', 'Pet Villa', '127 Princess St, Kingston, ON', '613-323-7236');
-insert into location values ('00003', 'Kingston SPCA', '262 University Ave, Kingston, ON', '613-991-5501');
-insert into location values ('00004', 'Toronto SPCA', '9981 Steeles Ave, Toronto, ON', '647-442-8877');
-insert into location values ('00005', 'Ottawa SPCA', '2001 Navajo Drive, Ottawa, ON', '613-101-3886');
-insert into location values ('00006', 'Rescue Heroes', '52 Playter BLVD, Toronto, ON', '416-511-8022');
-insert into location values ('00007', 'Animal Savior', '200 Alfred St, Kingston, ON', '613-444-9090');
-insert into location values ('00008', 'Dog Catchers', '81 Alta Vista Dr, Ottawa, ON', '613-313-1345');
-insert into location values ('00009', 'Joe Smith', '99 King St East, Toronto, ON', '416-111-1111');
-insert into location values ('00010', 'Jane Doe', '1001 Division St, Kingston, ON', '613-222-2222');
-insert into location values ('00011', 'Tommy Wiseau', '171 Victoria St, Kingston, ON', '613-333-3333');
+insert into location values ('00000', 'Animal Haus', '88 St. Clair Ave, Toronto, ON', '416-555-2543', 'shelter');
+insert into location values ('00001', 'Shelter Zone', '31 Beverley St, Kingston, ON', '613-924-1421', 'shelter');
+insert into location values ('00002', 'Pet Villa', '127 Princess St, Kingston, ON', '613-323-7236', 'shelter');
+insert into location values ('00003', 'Kingston SPCA', '262 University Ave, Kingston, ON', '613-991-5501', 'spca');
+insert into location values ('00004', 'Toronto SPCA', '9981 Steeles Ave, Toronto, ON', '647-442-8877', 'spca');
+insert into location values ('00005', 'Ottawa SPCA', '2001 Navajo Drive, Ottawa, ON', '613-101-3886', 'spca');
+insert into location values ('00006', 'Rescue Heroes', '52 Playter BLVD, Toronto, ON', '416-511-8022', 'rescue_org');
+insert into location values ('00007', 'Animal Savior', '200 Alfred St, Kingston, ON', '613-444-9090', 'rescue_org');
+insert into location values ('00008', 'Dog Catchers', '81 Alta Vista Dr, Ottawa, ON', '613-313-1345', 'rescue_org');
+insert into location values ('00009', 'Joe Smith', '99 King St East, Toronto, ON', '416-111-1111', 'adopter');
+insert into location values ('00010', 'Jane Doe', '1001 Division St, Kingston, ON', '613-222-2222', 'adopter');
+insert into location values ('00011', 'Tommy Wiseau', '171 Victoria St, Kingston, ON', '613-333-3333', 'adopter');
 
 insert into spca values ('10000', '00003');
 insert into spca values ('10001', '00004');
@@ -40,9 +40,9 @@ insert into adopter values ('40000', '00009');
 insert into adopter values ('40001', '00010');
 insert into adopter values ('40002', '00011');
 
-insert into animal values ('50000', 'dog', '00002');
-insert into animal values ('50001', 'cat', '00003');
-insert into animal values ('50002', 'rabbit', '00000');
+insert into animal values ('50000', 'dog', '00010');
+insert into animal values ('50001', 'cat', '00006');
+insert into animal values ('50002', 'rabbit', '00001');
 
 insert into employee values ('60000', 'Frank Herbert', '55 Broadview Ave, Toronto, ON', '416-779-8585', 'true', '00000');
 insert into employee values ('60001', 'Molly Herman', '2 Albert St, Kingston, ON', '613-242-3369', 'true', '00001');
@@ -60,9 +60,9 @@ insert into trip values ('90000', '2020-01-03', '00005', '00001', '70002' '50002
 insert into trip values ('90001', '2020-01-29', '00004', '00006', '70000' '50001');
 insert into trip values ('90002', '2020-02-07', '00001', '00010', '70001' '50000');
 
-insert into transaction values ('11000', '52.40', '50000', '00001', '00010', '2020-01-14');
-insert into transaction values ('11001', '109.62', '50001', '00004', '00006', '2020-01-28');
-insert into transaction values ('11002', '0', '50002', '00005', '00001', '2020-01-01');
+insert into transaction values ('11000', '52.40', '50000', '00010', '00001', '2020-01-14');
+insert into transaction values ('11001', '109.62', '50001', '00006', '00004', '2020-01-28');
+insert into transaction values ('11002', '0', '50002', '00001', '00005', '2020-01-01');
 
 insert into donation values ('12000', '1000.00', 'Hubert Cumberdale', '00003', '2020-02-01');
 insert into donation values ('12001', '5000.00', 'Melanie Thompson', '00002', '2020-01-14');
