@@ -4,6 +4,7 @@ create table location
 		name varchar(100) not null,
 		address varchar(120) not null,
 		telephone char(11) not null,
+		type enum("spca", "rescue_org", "shelter", "adopter") not null,
 		primary key (location_id)
 	);
 
@@ -28,10 +29,10 @@ create table shelter
 		ID varchar(5),
 		location_id varchar(5) not null,
 		website_url varchar(2083) not null,
-		max_dogs numeric(4, 0) check (max_dogs > 0) not null default 0,
-		max_cats numeric(4, 0) check (max_cats > 0) not null default 0,
-		max_rabbits numeric(4, 0) check (max_rabbits > 0) not null default 0,
-		max_rodents numeric(4, 0) check (max_rodents > 0) not null default 0,
+		max_dogs numeric(4, 0) check (max_dogs >= 0) not null default 0,
+		max_cats numeric(4, 0) check (max_cats >= 0) not null default 0,
+		max_rabbits numeric(4, 0) check (max_rabbits >= 0) not null default 0,
+		max_rodents numeric(4, 0) check (max_rodents >= 0) not null default 0,
 		foreign key (location_id) references location (location_id),
 		primary key (ID)
 	);
@@ -72,7 +73,7 @@ create table driver
 		telephone char(11) not null,
 		license_plate varchar(8) not null,
 		driver_license_number numeric(20, 0) not null,
-		rescue_org varchar(5),
+		rescue_org varchar(5) not null,
  	 	foreign key (rescue_org) references rescue_org (ID),
 		primary key (ID)
 	)
@@ -84,7 +85,7 @@ create table vet_visit
 		condition varchar(200) not null,
 		weight numeric(4,2) not null,
 		date Date not null,
-		animal_id varchar(5),
+		animal_id varchar(5) not null,
 		foreign key (animal_id) references animal (ID),
 		primary key (ID)
 	)
