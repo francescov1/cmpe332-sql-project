@@ -1,0 +1,69 @@
+delete from location;
+delete from spca;
+delete from rescue_org;
+delete from shelter;
+delete from adopter;
+delete from animal;
+delete from employee;
+delete from driver;
+delete from vet_visit;
+delete from trip;
+delete from transaction;
+delete from donation;
+
+insert into location values ('00000', 'Animal Haus', '88 St. Clair Ave, Toronto, ON', '416-555-2543');
+insert into location values ('00001', 'Shelter Zone', '31 Beverley St, Kingston, ON', '613-924-1421');
+insert into location values ('00002', 'Pet Villa', '127 Princess St, Kingston, ON', '613-323-7236');
+insert into location values ('00003', 'Kingston SPCA', '262 University Ave, Kingston, ON', '613-991-5501');
+insert into location values ('00004', 'Toronto SPCA', '9981 Steeles Ave, Toronto, ON', '647-442-8877');
+insert into location values ('00005', 'Ottawa SPCA', '2001 Navajo Drive, Ottawa, ON', '613-101-3886');
+insert into location values ('00006', 'Rescue Heroes', '52 Playter BLVD, Toronto, ON', '416-511-8022');
+insert into location values ('00007', 'Animal Savior', '200 Alfred St, Kingston, ON', '613-444-9090');
+insert into location values ('00008', 'Dog Catchers', '81 Alta Vista Dr, Ottawa, ON', '613-313-1345');
+insert into location values ('00009', 'Joe Smith', '99 King St East, Toronto, ON', '416-111-1111');
+insert into location values ('00010', 'Jane Doe', '1001 Division St, Kingston, ON', '613-222-2222');
+insert into location values ('00011', 'Tommy Wiseau', '171 Victoria St, Kingston, ON', '613-333-3333');
+
+insert into spca values ('10000', '00003');
+insert into spca values ('10001', '00004');
+insert into spca values ('10002', '00005');
+
+insert into rescue_org values ('20000', '00006');
+insert into rescue_org values ('20001', '00007');
+insert into rescue_org values ('20002', '00008');
+
+insert into shelter values ('30000', '00000', 'www.animalhaus.org', '10', '10', '5', '5');
+insert into shelter values ('30001', '00001', 'www.shelterzone.org', '5', '5', '20', '15');
+insert into shelter values ('30002', '00002', 'www.petvilla.com', '20', '15', '15');
+
+insert into adopter values ('40000', '00009');
+insert into adopter values ('40001', '00010');
+insert into adopter values ('40002', '00011');
+
+insert into animal values ('50000', 'dog', '00002');
+insert into animal values ('50001', 'cat', '00003');
+insert into animal values ('50002', 'rabbit', '00000');
+
+insert into employee values ('60000', 'Frank Herbert', '55 Broadview Ave, Toronto, ON', '416-779-8585', 'true', '00000');
+insert into employee values ('60001', 'Molly Herman', '2 Albert St, Kingston, ON', '613-242-3369', 'true', '00001');
+insert into employee values ('60002', 'Paul Schmidt', '45 Toronto St, Kingston, ON', '613-402-9301', 'false', '00001');
+
+insert into driver values ('70000', 'Billy Joel', '416-900-6646', 'Q4B998', '1234567898654321', '20000');
+insert into driver values ('70001', 'Billie Jean', '613-784-0091', 'Z8S442', '23456789198765432', '20001');
+insert into driver values ('70002', 'Billy Joel', '613-253-1111', 'TOURN', '34567891219876543', '20002');
+
+insert into vet_visit values ('80000', 'Dr Ron Shepard', 'A-OK', '4.6', '2020-02-01', '50001');
+insert into vet_visit values ('80001', 'Dr Stephanie Cohen', 'A-OK', '5.8', '2020-01-15', '50000');
+insert into vet_visit values ('80002', 'Dr Jonas Swansea', 'NEAR DEATH', '3.1', '2020-01-09', '50002');
+
+insert into trip values ('90000', '2020-01-03', '00005', '00001', '70002' '50002');
+insert into trip values ('90001', '2020-01-29', '00004', '00006', '70000' '50001');
+insert into trip values ('90002', '2020-02-07', '00001', '00010', '70001' '50000');
+
+insert into transaction values ('11000', '52.40', '50000', '00001', '00010', '2020-01-14');
+insert into transaction values ('11001', '109.62', '50001', '00004', '00006', '2020-01-28');
+insert into transaction values ('11002', '0', '50002', '00005', '00001', '2020-01-01');
+
+insert into donation values ('12000', '1000.00', 'Hubert Cumberdale', '00003', '2020-02-01');
+insert into donation values ('12001', '5000.00', 'Melanie Thompson', '00002', '2020-01-14');
+insert into donation values ('12002', '4070.29', 'Eleanor Ethyl', '00008', '2020-01-08');
