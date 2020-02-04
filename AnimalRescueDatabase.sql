@@ -72,7 +72,7 @@ create table driver
 		telephone char(11) not null,
 		license_plate varchar(8) not null,
 		driver_license_number numeric(20, 0) not null,
-		rescue_org varchar(5),
+		rescue_org varchar(5) not null,
  	 	foreign key (rescue_org) references rescue_org (ID),
 		primary key (ID)
 	)
@@ -84,7 +84,7 @@ create table vet_visit
 		condition varchar(200) not null,
 		weight numeric(4,2) not null,
 		date Date not null,
-		animal_id varchar(5),
+		animal_id varchar(5) not null,
 		foreign key (animal_id) references animal (ID),
 		primary key (ID)
 	)
